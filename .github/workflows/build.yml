@@ -10,7 +10,7 @@ name: Build Eaglercraft 26.2
 on:
   push:
     branches: [main]
-    paths: ["mods/**", "loader/**", "addons/**"]
+    paths: ["mods/**", "loader/**", "addons/**", "textures/**", ".github/workflows/build.yml"]
     tags: ["v*"]
   workflow_dispatch:
     inputs:
@@ -60,6 +60,10 @@ jobs:
           # Gradle itself is downloaded on first use; retry, since that download sometimes times out
           for i in 1 2 3 4 5; do ./gradlew --no-daemon --version >/dev/null && break; echo "Gradle download failed (try $i), retrying"; sleep $((i * 20)); done
 
+      - name: Add Lava Client button texture
+        run: |
+          mkdir -p workspace/game/src/main/resources/assets/minecraft/textures/gui/sprites/widget
+          cp textures/widget/button.png workspace/game/src/main/resources/assets/minecraft/textures/gui/sprites/widget/button.png
       - name: Download the mods listed in mods/modrinth.txt
         run: |
           if [ -f mods/modrinth.txt ]; then python3 tools/modrinth.py download 26.2 mods/modrinth.txt mods; fi
