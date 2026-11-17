@@ -60,12 +60,13 @@ jobs:
           # Gradle itself is downloaded on first use; retry, since that download sometimes times out
           for i in 1 2 3 4 5; do ./gradlew --no-daemon --version >/dev/null && break; echo "Gradle download failed (try $i), retrying"; sleep $((i * 20)); done
 
-      - name: Add Lava Client button texture
+      - name: Add Lava Client textures and title screen
         run: |
           mkdir -p workspace/game/src/main/resources/assets/minecraft/textures/gui
           cp textures/gui/lava_logo.png workspace/game/src/main/resources/assets/minecraft/textures/gui/lava_logo.png
           mkdir -p workspace/game/src/main/resources/assets/minecraft/textures/gui/sprites/widget
           cp textures/widget/button.png workspace/game/src/main/resources/assets/minecraft/textures/gui/sprites/widget/button.png
+          cp patches/screens/TitleScreen.java workspace/game/src/main/java/net/minecraft/client/gui/screens/TitleScreen.java
 
       - name: Download the mods listed in mods/modrinth.txt
         run: |
