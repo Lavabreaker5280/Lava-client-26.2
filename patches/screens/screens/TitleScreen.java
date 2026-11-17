@@ -24,11 +24,13 @@ import net.minecraft.client.gui.screens.worldselection.CreateWorldScreen;
 import net.minecraft.client.gui.screens.worldselection.SelectWorldScreen;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.Panorama;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.client.quickplay.QuickPlay;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.Mth;
@@ -66,6 +68,7 @@ public class TitleScreen extends Screen {
 
    public static void registerTextures(final TextureManager textureManager) {
       textureManager.registerForNextReload(LogoRenderer.MINECRAFT_LOGO);
+	   textureManager.registerForNextReload(Identifier.withDefaultNamespace("textures/gui/lava_logo.png"));
       textureManager.registerForNextReload(LogoRenderer.MINECRAFT_EDITION);
       textureManager.registerForNextReload(Panorama.PANORAMA_OVERLAY);
    }
@@ -345,7 +348,19 @@ public class TitleScreen extends Screen {
 
       this.extractPanorama(graphics, a);
       super.extractRenderState(graphics, mouseX, mouseY, a);
-      this.logoRenderer.extractRenderState(graphics, this.width, this.logoRenderer.keepLogoThroughFade() ? 1.0F : widgetFade);
+	   graphics.blit(
+   RenderPipelines.GUI_TEXTURED,
+   Identifier.withDefaultNamespace("textures/gui/lava_logo.png"),
+   this.width / 2 - 180,
+   30,
+   0.0F,
+   0.0F,
+   360,
+   120,
+   2172,
+   724,
+   ARGB.white(widgetFade)
+);
       if (this.splash != null && !this.minecraft.options.hideSplashTexts().get()) {
          this.splash.extractRenderState(graphics, this.width, this.font, widgetFade);
       }
