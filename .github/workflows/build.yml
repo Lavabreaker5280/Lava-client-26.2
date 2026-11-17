@@ -60,7 +60,7 @@ jobs:
           # Gradle itself is downloaded on first use; retry, since that download sometimes times out
           for i in 1 2 3 4 5; do ./gradlew --no-daemon --version >/dev/null && break; echo "Gradle download failed (try $i), retrying"; sleep $((i * 20)); done
 
-           - name: Add Lava Client button texture
+      - name: Add Lava Client button texture
         run: |
           mkdir -p workspace/game/src/main/resources/assets/minecraft/textures/gui
           cp textures/gui/lava_logo.png workspace/game/src/main/resources/assets/minecraft/textures/gui/lava_logo.png
