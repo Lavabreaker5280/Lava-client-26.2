@@ -348,26 +348,21 @@ public class TitleScreen extends Screen {
 
       this.extractPanorama(graphics, a);
       super.extractRenderState(graphics, mouseX, mouseY, a);
-	 
 graphics.blit(
     RenderPipelines.GUI_TEXTURED,
     Identifier.withDefaultNamespace("textures/gui/lava_logo.png"),
-    this.width / 2 - 180,
-    30,
+    this.width / 2 - 150,
+    5,
     0.0F,
     0.0F,
-    360,
-    120,
+    300,
+    100,
     2048,
     682,
     2048,
     682,
     ARGB.white(widgetFade)
 );
-      if (this.splash != null && !this.minecraft.options.hideSplashTexts().get()) {
-         this.splash.extractRenderState(graphics, this.width, this.font, widgetFade);
-      }
-
       String versionString = "Minecraft " + SharedConstants.getCurrentVersion().name();
       if (this.minecraft.isDemo()) {
          versionString = versionString + " Demo";
