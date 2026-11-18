@@ -10,7 +10,7 @@ name: Build Eaglercraft 26.2
 on:
   push:
     branches: [main]
-    paths: ["mods/**", "loader/**", "addons/**", "textures/**", ".github/workflows/build.yml"]
+    paths: ["mods/**", "loader/**", "addons/**", "textures/**", "patches/**", ".github/workflows/build.yml"]
     tags: ["v*"]
   workflow_dispatch:
     inputs:
