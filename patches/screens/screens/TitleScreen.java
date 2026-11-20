@@ -347,8 +347,9 @@ public class TitleScreen extends Screen {
       }
 
       this.extractPanorama(graphics, a);
+      graphics.fill(0, 0, this.width, this.height, 0xFF101010);
       super.extractRenderState(graphics, mouseX, mouseY, a);
-graphics.blit(
+      graphics.blit(
     RenderPipelines.GUI_TEXTURED,
     Identifier.withDefaultNamespace("textures/gui/lava_logo.png"),
     this.width / 2 - 150,
