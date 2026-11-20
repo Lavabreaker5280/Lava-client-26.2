@@ -348,6 +348,17 @@ public class TitleScreen extends Screen {
 
       this.extractPanorama(graphics, a);
       graphics.fill(0, 0, this.width, this.height, 0xFF101010);
+
+// Lava orange accent panels
+graphics.fill(0, 0, this.width, 5, 0xFFFF6600);
+graphics.fill(0, this.height - 5, this.width, this.height, 0xFFFF6600);
+
+graphics.fill(0, 0, 5, this.height, 0xFF803300);
+graphics.fill(this.width - 5, 0, this.width, this.height, 0xFF803300);
+
+// Subtle orange accent blocks
+graphics.fill(20, 20, 24, this.height - 20, 0xFF30180D);
+graphics.fill(this.width - 24, 20, this.width - 20, this.height - 20, 0xFF30180D);
       super.extractRenderState(graphics, mouseX, mouseY, a);
       graphics.blit(
     RenderPipelines.GUI_TEXTURED,
