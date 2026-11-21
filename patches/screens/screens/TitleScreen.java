@@ -359,6 +359,15 @@ graphics.fill(this.width - 5, 0, this.width, this.height, 0xFF803300);
 // Subtle orange accent blocks
 graphics.fill(20, 20, 24, this.height - 20, 0xFF30180D);
 graphics.fill(this.width - 24, 20, this.width - 20, this.height - 20, 0xFF30180D);
+	   // Lava geometric background accents
+graphics.fill(35, 35, 150, 39, 0xFF24140F);
+graphics.fill(this.width - 150, 35, this.width - 35, 39, 0xFF24140F);
+
+graphics.fill(35, this.height - 45, 120, this.height - 41, 0xFF30180D);
+graphics.fill(this.width - 120, this.height - 45, this.width - 35, this.height - 41, 0xFF30180D);
+
+graphics.fill(35, 45, 39, 110, 0xFF30180D);
+graphics.fill(this.width - 39, 45, this.width - 35, 110, 0xFF30180D);
       super.extractRenderState(graphics, mouseX, mouseY, a);
       graphics.blit(
     RenderPipelines.GUI_TEXTURED,
